@@ -6,13 +6,14 @@ from egovision.values.paths import DATASET_FRAMES_PATH
 from egovision.values.paths import DATASET_VIDEOS_PATH
 from egovision import Frame, Video
 from egovision.handSegmentation import PixelByPixelMultiHandSegmenter
-from egovision.handSegmentation import PostB2016
+from egovision.handSegmentation import TrackingPostProcessor, PostB2016
 from egovision.handIdentification import MaxwellIdentificationModel
 from egovision.handIdentification import SuperpixelsOcclusionDetector
 from egovision.handSegmentation import SegmentVisualizer
 from egovision.output import VideoWriter
 from egovision.modelRecommenders import NearestNeighbors
 from egovision.interfaces import cv2i
+from egovision.handTracking import EllipseTracker
 import sys
 import numpy as np
 import os 

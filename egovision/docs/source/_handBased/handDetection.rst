@@ -42,7 +42,7 @@ Egovision is able to export your binary classifications as a video. This are som
 
 * Example 1: This video shows an outstanding performance in the office. The performance of the method is improved because there are not missleading shapes in the scene.
 
-.. youtube:: kLjH8bHQleE
+.. youtube:: http://www.youtube.com/watch?v=kLjH8bHQleE
  
 
 * Example 2: This video shows the same method in a coffe bar. The difference in both performances (office and coffebar) is explained by the shapes of the used tables.

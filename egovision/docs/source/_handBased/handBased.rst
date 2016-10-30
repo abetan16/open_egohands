@@ -13,8 +13,8 @@ Hand detection
 
 This level answers the yes-or-no question of the hands' presence in the frame. This problem is addressed in :cite:`Betancourt2014a` as frame by frame classification problem. In their experiments the authors report that the best result is achieved if Histogram of Oriented Gradients (HOG) is combined with Support Vector Machines (SVM). The following video shows an example of a hand-detector implemented in EgoHands.
 
-
 .. youtube:: http://www.youtube.com/watch?v=dl4xrvUwI_M
+
 
 One of the main problems of this frame-by-frame approach is its sensibility to small changes between frames, which makes unstable in time the decisions taken by the classifier. In recent experiments this issue is alleviated using a Probabilistic Graphical Model that filters a real valued representation of the SVM classifier. In the Unified Framework of the hand-detector must be optimized only to detect as fast as possible the frames on which the hands start to show up in the scene
 
@@ -30,7 +30,7 @@ It is probably the more explored problem in FPV. The main task is to delineate t
 
 .. youtube:: https://www.youtube.com/watch?v=jmkayWZA5A0
 
-The main challenge in the pixel-by-pixel approach is the computational complexity of the task, involving the decision for each pixel in each frame.  For instance, the camera of the Google glasses has a resolution of 720p and records 30 frames per second, implying 928.800 pixel classifications per frame and a total of 27'864.000 per second of video. A promising strategy to reduce this number is to simplify the frames as SLIC superpixels \cite{Achanta2012a} and classify the simplified image as is done in :cite:`Serra2013`. 
+The main challenge in the pixel-by-pixel approach is the computational complexity of the task, involving the decision for each pixel in each frame.  For instance, the camera of the Google glasses has a resolution of 720p and records 30 frames per second, implying 928.800 pixel classifications per frame and a total of 27'864.000 per second of video. A promising strategy to reduce this number is to simplify the frames as SLIC superpixels :cite:`Achanta2012a` and classify the simplified image as is done in :cite:`Serra2013`. 
 
 .. toctree::
    :maxdepth: 3
@@ -41,7 +41,7 @@ The main challenge in the pixel-by-pixel approach is the computational complexit
 Hand identification
 -------------------
 
-It is an intuitive but challenging task on which the objective is to identify the left and the right hand. The hand-identification problem is extended in \cite{Lee2014}, proposing a Bayesian method to identify, using the relative positions, the hands of the user as well as the hands of a third person in the video. At this point it is worth to mention the robustness of the proposed hand-detector to the presence of third person hands, however, in the segmentation level extra effort must be done to segment only the user hands. Assuming a reliable hand-segmentation it is possible to build a simple identification system based on the angle and the side of the frame from which the hand appears. We found that in realistic scenarios this approach properly differentiate the left and the right hand in almost all the frames at low computational cost. Two difficult scenarios of this approach are: i) When the hands are close enough to create as a single shape, ii) when the appearance of the hands is divided by an external object as a bracelet or a watch, creating several hand-like shapes. Figure \ref{fig:identification} shows an example of our identification algorithm based on manually segmented shapes.
+It is an intuitive but challenging task on which the objective is to identify the left and the right hand. The hand-identification problem is extended in :cite:`Lee2014`, proposing a Bayesian method to identify, using the relative positions, the hands of the user as well as the hands of a third person in the video. At this point it is worth to mention the robustness of the proposed hand-detector to the presence of third person hands, however, in the segmentation level extra effort must be done to segment only the user hands. Assuming a reliable hand-segmentation it is possible to build a simple identification system based on the angle and the side of the frame from which the hand appears. We found that in realistic scenarios this approach properly differentiate the left and the right hand in almost all the frames at low computational cost. Two difficult scenarios of this approach are: i) When the hands are close enough to create as a single shape, ii) when the appearance of the hands is divided by an external object as a bracelet or a watch, creating several hand-like shapes. Figure \ref{fig:identification} shows an example of our identification algorithm based on manually segmented shapes.
 
 .. youtube:: https://www.youtube.com/watch?v=1_jw2Z9lBtc
 
@@ -54,6 +54,7 @@ It is an intuitive but challenging task on which the objective is to identify th
 Hand tracking [In progress]
 ---------------------------
 
-For a wearable camera it is clearly important to be able to record, track and denoise the hands trajectories. An intuitive and straightforward approach is to keep history of the hands centroid as done in \cite{Morerio2013}, however, the use of dynamic filters could help to increase the accuracy of the trajectories, reduce the sampling rate (the lower the sampling rate the closer to real time performance), and manage the switching process between the hand-detection and the hand-segmentation level. Regarding the initial conditions (e.g. initial coordinates of the tracked hand) the best choice is to use dynamic filters like the h-filter, which only requires the empirical distribution of the initial coordinates \cite{Bhuvana2014}. The initial distribution can be found using empirical data as shown in \cite{Philipose2009}, see Figure \ref{fig:empiricalLocation}. Regarding the dynamic model, our preliminary experiments suggest that a simple linear model could achieve promising results for high frequency sampling, however additional tests are required before a conclusion can be made. Figure \ref{fig:tracking} shows a frame by frame tracking of the hand center.
+For a wearable camera it is clearly important to be able to record, track and denoise the hands trajectories. An intuitive and straightforward approach is to keep history of the hands centroid as done in :cite:`Morerio2013`, however, the use of dynamic filters could help to increase the accuracy of the trajectories, reduce the sampling rate (the lower the sampling rate the closer to real time performance), and manage the switching process between the hand-detection and the hand-segmentation level. Regarding the initial conditions (e.g. initial coordinates of the tracked hand) the best choice is to use dynamic filters like the h-filter, which only requires the empirical distribution of the initial coordinates :cite:`Bhuvana2014`. The initial distribution can be found using empirical data as shown in :cite:`Philipose2009`. Regarding the dynamic model, our preliminary experiments suggest that a simple linear model could achieve promising results for high frequency sampling, however additional tests are required before a conclusion can be made.
 
 .. youtube:: https://www.youtube.com/watch?v=wRMVDQaR7XA
+

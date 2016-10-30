@@ -1,0 +1,14 @@
+# 1. To build the source code
+sphinx-build -b html source/ html/
+
+# 2. To fix the video problems
+REMEMBER TO CHANGE THIS IN THE sphinx.youtube library
+tag = u'''<iframe width="640" height="360" src="http:{0}" frameborder="0" allowfullscreen="1">&nbsp;</iframe>'''.format(url)
+
+# 3. To create UML diagrams
+pyreverse -S -a0 -o pdf --ignore exceptions.py,test_feature.py,featureAlgorithm.py egovision/features
+pyreverse -s1 -a0 -o pdf --ignore exceptions.py,test_handDetection.py egovision/handDetection
+pyreverse -s0 -a0 -o pdf --ignore exceptions.py,test_segmenter.py egovision/handSegmentation
+
+# 4. UNITEST
+python -m unittest discover -v

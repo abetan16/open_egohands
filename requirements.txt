@@ -10,7 +10,7 @@ argparse==1.2.1
 astroid==1.4.5
 colorama==0.3.7
 cycler==0.10.0
-dask==0.8.2
+dask==2021.10.0
 decorator==4.0.9
 docutils==0.12
 epydoc==3.0.1
